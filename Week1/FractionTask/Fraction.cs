@@ -28,7 +28,7 @@
         {
             if (secondExp._numerator == 0)
             {
-                throw new DivideByZeroException();
+                throw new ArgumentException("Numerator can not be zero", nameof(_numerator));
             }
             return new Fraction(firstExp._numerator * secondExp._denominator, firstExp._denominator * secondExp._numerator);
         }
