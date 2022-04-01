@@ -38,7 +38,7 @@ namespace Week1.ModelingTask.Managers
         {
             if (score < 0 || score > 100) throw new ArgumentException("Score must be in range 0 and 100");
             var lessons = _context.Lessons.Where(x => x.Course.Id == course.Id && x.Student.Id == student.Id);
-            foreach (var less in lessons)
+            foreach (var less in lessons.ToList())
             {
                 if (less.Id == lesson.Id)
                 { 

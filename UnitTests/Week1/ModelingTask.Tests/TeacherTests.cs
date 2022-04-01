@@ -10,7 +10,6 @@ namespace UnitTests.Week1.ModelingTask.Tests
     {
         [Theory]
         [InlineData(0, 0)]
-        [InlineData(25, 25)]
         [InlineData(50, 50)]
         [InlineData(75, 75)]
         [InlineData(100, 100)]

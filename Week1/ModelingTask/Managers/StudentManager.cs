@@ -40,7 +40,7 @@ namespace Week1.ModelingTask.Managers
 
             int totalScore = lessons.Sum(x => x.Score);
             int countLessons = lessons.Count();
-
+            if (countLessons == 0) throw new DivideByZeroException("Collection no has lessons");
             return (int)totalScore / countLessons;
         }
 
