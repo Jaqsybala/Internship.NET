@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Week1\Week1.csproj" />
+    <ProjectReference Include="..\Week2\Week2.csproj" />
   </ItemGroup>
 
   <ItemGroup>
