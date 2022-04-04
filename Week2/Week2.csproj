@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="LINQTask\" />
-    <Folder Include="DisposeTask\" />
     <Folder Include="ReflectionTask\" />
   </ItemGroup>
 
