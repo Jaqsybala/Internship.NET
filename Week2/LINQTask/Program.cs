@@ -87,13 +87,13 @@ namespace Week2
             {
                 //Sequence E
                 new Purchase(123, "FK200-5400", "Magnum"),
-                new Purchase(123, "FK201-5401", "Magnum"),
+                new Purchase(125, "FK201-5401", "Magnum"),
                 new Purchase(124, "FK202-5402", "Magnum"),
                 new Purchase(124, "FR300-5300", "Marko"),
                 new Purchase(123, "FR301-5301", "Marko"),
                 new Purchase(125, "FC100-5200", "Small"),
                 new Purchase(126, "FC101-5201", "Small"),
-                new Purchase(127, "FG500-5500", "Small"),
+                new Purchase(124, "FG500-5500", "Small"),
                 new Purchase(127, "FF400-5700", "Marko"),
 
             };
@@ -113,11 +113,8 @@ namespace Week2
                     Store = x.p.p.StoreName,
                     Consumer_code = x.c.ConsumerCode,
                     Year_Of_Birth = x.c.YearOfBirth,
-                    Total_costs = prices
-                        .Where(p => p.ArticleNumber == x.p.p.ArticelNumber)
-                        .Select(p => p.Prices)
                 })
-                //.Where(x => x.Year_Of_Birth == consumers.Select(x => x.YearOfBirth).Max())
+                .Where(x => x.Year_Of_Birth == consumers.Select(x => x.YearOfBirth).Max())
                 .OrderByDescending(x => x.Country)
                 .ThenByDescending(x => x.Store)
                 .ThenByDescending(x => x.Consumer_code);
@@ -125,7 +122,6 @@ namespace Week2
 
             foreach (var item in oneLINQ)
                 Console.WriteLine(item);
-            //Console.WriteLine(oneLINQ);
         }
     }
 }
