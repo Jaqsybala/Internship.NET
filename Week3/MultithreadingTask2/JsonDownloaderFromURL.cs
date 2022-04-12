@@ -24,7 +24,7 @@ namespace Week3.MultithreadingTask2
                         if (id >= end) break;
                         target = urls["thumbnailUrl"].ToString();
                         id = Convert.ToInt32(urls["id"].ToString());
-                        wc.DownloadFile(target, @$"C:\Users\azizk\Downloads\JSON\{id}.jpg");
+                        wc.DownloadFile(target, @$"C:\Users\someUser\Downloads\JSON\{id}.jpg");
                         Console.WriteLine($"{id}.jpg loaded + {id}");
                     }
                 }
@@ -36,7 +36,7 @@ namespace Week3.MultithreadingTask2
                         target = urls["thumbnailUrl"].ToString();
                         id = Convert.ToInt32(urls["id"].ToString());
                         if (id < start) continue;
-                        wc.DownloadFile(target, @$"C:\Users\azizk\Downloads\JSON\{id}.jpg");
+                        wc.DownloadFile(target, @$"C:\Users\someUser\Downloads\JSON\{id}.jpg");
                         Console.WriteLine($"{id}.jpg loaded + {id}");
                     }
                 }
