@@ -3,13 +3,13 @@
     public class Purchase
     {
         public int ConsumerCode { get; set; }
-        public string ArticelNumber { get; set; }
+        public string ArticleNumber { get; set; }
         public string StoreName { get; set; }
 
         public Purchase(int consumerCode, string articleNumber, string storeName)
         {
             ConsumerCode = consumerCode;
-            ArticelNumber = articleNumber;
+            ArticleNumber = articleNumber;
             StoreName = storeName;
         }
     }
