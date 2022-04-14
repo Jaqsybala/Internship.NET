@@ -9,118 +9,146 @@ namespace Week2
             List<Consumer> consumers = new List<Consumer>()
             { 
                 //Sequence A
-                new Consumer(123, 1997, "Almaty"),
-                new Consumer(124, 2001, "Almaty"),
-                new Consumer(125, 1991, "Astana"),
-                new Consumer(126, 1993, "Atyrau"),
-                new Consumer(127, 1995, "Aktau"),
-                new Consumer(128, 1989, "Almaty"),
+                new Consumer(1, 1997, "Almaty"),
+                new Consumer(2, 1998, "Astana"),
+                new Consumer(3, 1999, "Atyrau"),
             };
 
             List<Goods> goods = new List<Goods>()
             {
                 //Sequence B
-                new Goods("FK200-5400", "Food", "Kazakhstan"),
-                new Goods("FK201-5401", "Food", "Kazakhstan"),
-                new Goods("FK202-5402", "Food", "Kazakhstan"),
-
-                new Goods("FR300-5300", "Food", "Russia"),
-                new Goods("FR301-5301", "Food", "Russia"),
-
-                new Goods("FC100-5200", "Food", "China"),
-                new Goods("FC101-5201", "Food", "China"),
-
-                new Goods("FG500-5500", "Food", "Germany"),
-
-                new Goods("FF400-5700", "Food", "France"),
-                new Goods("FF401-5701", "Food", "France"),
+                new Goods("FK000-0100", "Food", "Kazakhstan"),
+                new Goods("FU000-0101", "Food", "Ukraine"),
+                new Goods("FJ000-0102", "Food", "Japan"),
+                new Goods("SR000-0200", "Sport", "Russia"),
+                new Goods("SU000-0201", "Sport", "USA"),
+                new Goods("CT000-0300", "Clothes", "Turkey"),
+                new Goods("CI000-0301", "Clothes", "Italy"),
             };
 
             List<Discount> discounts = new List<Discount>()
             {
                 //Sequence C
-                new Discount(123, "Magnum", 5),
-                new Discount(124, "Magnum", 15),
-
-                new Discount(125, "Marko", 3),
-                new Discount(126, "Marko", 11),
-
-                new Discount(127, "Small", 20),
-                new Discount(123, "Small", 5),
+                new Discount(1, "Magnum", 10),
+                new Discount(1, "Gucci", 5),
+                new Discount(2, "Sportmaster", 30),
+                new Discount(2, "Decathlon", 15),
+                new Discount(2, "DeFacto", 50),
+                new Discount(3, "DeFacto", 10),
+                new Discount(1, "DeFacto", 10),
             };
 
             List<Price> prices = new List<Price>()
             {
                 //Sequence D
-                new Price("FK200-5400", "Magnum", 500),
-                new Price("FK201-5401", "Magnum", 1000),
-                new Price("FK202-5402", "Magnum", 1500),
-                new Price("FR300-5300", "Magnum", 1200),
-                new Price("FR301-5301", "Magnum", 850),
-                new Price("FC100-5200", "Magnum", 900),
-                new Price("FC101-5201", "Magnum", 450),
-                new Price("FG500-5500", "Magnum", 2500),
-                new Price("FF400-5700", "Magnum", 3000),
-
-                new Price("FK200-5400", "Marko", 450),
-                new Price("FK201-5401", "Marko", 950),
-                new Price("FK202-5402", "Marko", 1450),
-                new Price("FR300-5300", "Marko", 1100),
-                new Price("FR301-5301", "Marko", 750),
-                new Price("FC100-5200", "Marko", 800),
-                new Price("FC101-5201", "Marko", 350),
-                new Price("FG500-5500", "Marko", 1500),
-                new Price("FF400-5700", "Marko", 2000),
-
-                new Price("FK200-5400", "Small", 600),
-                new Price("FK201-5401", "Small", 1100),
-                new Price("FK202-5402", "Small", 1600),
-                new Price("FR300-5300", "Small", 1300),
-                new Price("FR301-5301", "Small", 950),
-                new Price("FC100-5200", "Small", 1000),
-                new Price("FC101-5201", "Small", 550),
-                new Price("FG500-5500", "Small", 2600),
-                new Price("FF400-5700", "Small", 3100),
+                new Price("FK000-0100", "Magnum", 5000),
+                new Price("FU000-0101", "Magnum", 12000),
+                new Price("FJ000-0102", "Magnum", 80000),
+                new Price("SR000-0200", "Sportmaster", 20000),
+                new Price("SU000-0201", "Sportmaster", 40000),
+                new Price("SR000-0200", "Decathlon", 10000),
+                new Price("SU000-0201", "Decathlon", 15000),
+                new Price("CT000-0300", "DeFacto", 7500),
+                new Price("CI000-0301", "Gucci", 1800000),
             };
 
             List<Purchase> purchases = new List<Purchase>()
             {
                 //Sequence E
-                new Purchase(123, "FK200-5400", "Magnum"),
-                new Purchase(125, "FK201-5401", "Magnum"),
-                new Purchase(124, "FK202-5402", "Magnum"),
-                new Purchase(124, "FR300-5300", "Marko"),
-                new Purchase(123, "FR301-5301", "Marko"),
-                new Purchase(125, "FC100-5200", "Small"),
-                new Purchase(126, "FC101-5201", "Small"),
-                new Purchase(124, "FG500-5500", "Small"),
-                new Purchase(127, "FF400-5700", "Marko"),
+                new Purchase(1, "FK000-0100", "Magnum"),
+                new Purchase(2, "FU000-0101", "Magnum"),
+                new Purchase(3, "FJ000-0102", "Magnum"),
+                new Purchase(1, "SU000-0201", "Sportmaster"),
+                new Purchase(2, "SU000-0201", "Sportmaster"),
+                new Purchase(1, "SR000-0200", "Sportmaster"),
+                new Purchase(3, "SR000-0200", "Decathlon"),
+                new Purchase(2, "CI000-0301", "Gucci"),
+                new Purchase(3, "CT000-0300", "DeFacto"),
+                new Purchase(1, "CT000-0300", "DeFacto"),
+                new Purchase(1, "CT000-0300", "DeFacto"),
+                new Purchase(1, "CT000-0300", "DeFacto"),
 
             };
 
-            var oneLINQ = purchases
-                .Join(goods,
-                p => p.ArticelNumber,
-                g => g.ArticleNumber,
-                (p, g) => new { p, g })
-                .Join(consumers,
-                p => p.p.ConsumerCode,
-                c => c.ConsumerCode,
-                (p, c) => new { p, c })
-                .Select(x => new
-                {
-                    Country = x.p.g.CountryOfOrigin,
-                    Store = x.p.p.StoreName,
-                    Consumer_code = x.c.ConsumerCode,
-                    Year_Of_Birth = x.c.YearOfBirth,
-                })
-                .Where(x => x.Year_Of_Birth == consumers.Select(x => x.YearOfBirth).Max())
-                .OrderByDescending(x => x.Country)
-                .ThenByDescending(x => x.Store)
-                .ThenByDescending(x => x.Consumer_code);
+            var finalLINQ =
+                    from e in purchases
+                    join b in goods on e.ArticleNumber equals b.ArticleNumber
+                    join a in consumers on e.ConsumerCode equals a.ConsumerCode
+                    join c in discounts on new { e.StoreName, e.ConsumerCode } equals new { c.StoreName, c.ConsumerCode }
+                    join d in prices on new { e.ArticleNumber, e.StoreName } equals new { d.ArticleNumber, d.StoreName }
+                    join fq in (from se in purchases
+                                join sb in goods on se.ArticleNumber equals sb.ArticleNumber
+                                join sa in consumers on se.ConsumerCode equals sa.ConsumerCode
+                                join sd in prices on new { se.ArticleNumber, se.StoreName } equals new { sd.ArticleNumber, sd.StoreName }
+                                group new { sb, se, sa } by new { sb.CountryOfOrigin, se.StoreName } into CS
+                                select new
+                                {
+                                    acountry_of_origin = CS.Key.CountryOfOrigin,
+                                    astore_name = CS.Key.StoreName,
+                                    maxy = CS.Max(x => x.sa.YearOfBirth)
+                                })
+                    on new
+                    {
+                        Country = b.CountryOfOrigin,
+                        Store = e.StoreName
+                    } equals new
+                    {
+                        Country = fq.acountry_of_origin,
+                        Store = fq.astore_name
+                    }
+                    join sq in (from ce in purchases
+                                join cb in goods on ce.ArticleNumber equals cb.ArticleNumber
+                                join ca in consumers on ce.ConsumerCode equals ca.ConsumerCode
+                                join cc in discounts on new { ce.StoreName, ce.ConsumerCode } equals new { cc.StoreName, cc.ConsumerCode }
+                                join cd in prices on new { ce.ArticleNumber, ce.StoreName } equals new { cd.ArticleNumber, cd.StoreName }
+                                group new { cb, ce, ca, cd, cc } by new { cb.CountryOfOrigin, ce.StoreName, ce.ConsumerCode, ca.YearOfBirth } into KS
+                                select new
+                                {
+                                    ccountry_of_origin = KS.Key.CountryOfOrigin,
+                                    cstore_name = KS.Key.StoreName,
+                                    cconsumer_code = KS.Key.ConsumerCode,
+                                    cyear_of_birth = KS.Key.YearOfBirth,
+                                    cnew_price = KS.Sum(x => x.cd.Prices - (x.cd.Prices * x.cc.Discounts) / 100)
+                                })
+                    on new
+                    {
+                        Country = b.CountryOfOrigin,
+                        Store = e.StoreName,
+                        Code = e.ConsumerCode,
+                        Birth = a.YearOfBirth
+                    } equals new
+                    {
+                        Country = sq.ccountry_of_origin,
+                        Store = sq.cstore_name,
+                        Code = sq.cconsumer_code,
+                        Birth = sq.cyear_of_birth
+                    }
+                    where a.YearOfBirth == fq.maxy
+                    group new { b, e, a, fq, sq } by new
+                    {
+                        b.CountryOfOrigin,
+                        e.StoreName,
+                        e.ConsumerCode,
+                        a.YearOfBirth,
+                        fq.acountry_of_origin,
+                        fq.astore_name,
+                        fq.maxy,
+                        sq.ccountry_of_origin,
+                        sq.cstore_name,
+                        sq.cconsumer_code,
+                        sq.cyear_of_birth,
+                        sq.cnew_price
+                    } into finalGroup
+                    select new
+                    {
+                        Country = finalGroup.Key.CountryOfOrigin,
+                        Store = finalGroup.Key.StoreName,
+                        Code = finalGroup.Key.ConsumerCode,
+                        Birth = finalGroup.Key.YearOfBirth,
+                        Price = finalGroup.Key.cnew_price
+                    };
 
-
-            foreach (var item in oneLINQ)
+            foreach (var item in finalLINQ)
                 Console.WriteLine(item);
         }
     }
