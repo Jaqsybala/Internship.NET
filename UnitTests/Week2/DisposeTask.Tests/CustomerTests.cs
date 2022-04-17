@@ -1,6 +1,4 @@
-﻿using Moq;
-using System;
-using System.Diagnostics;
+﻿using System;
 using Week2.DisposeTask;
 using Xunit;
 
@@ -29,7 +27,7 @@ namespace UnitTests.Week2.DisposeTask.Tests
 
             for (int i = 0; i < 1000; i++)
             {
-                target = new Customer();    
+                target = new Customer();
             }
 
             target = null;
@@ -39,7 +37,7 @@ namespace UnitTests.Week2.DisposeTask.Tests
             GC.WaitForPendingFinalizers();
 
             var res = After_GC_Collect();
-            
+
             Assert.Equal(0, res);
         }
     }
