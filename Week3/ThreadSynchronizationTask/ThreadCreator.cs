@@ -6,17 +6,13 @@
         private static AutoResetEvent are = new AutoResetEvent(false);
         static void Main(string[] args)
         {
-            Thread thread1 = new Thread(ManualThread);
-            thread1.Name = "Thread 1";
-            thread1.Start();
-
-            Thread.Sleep(1000);
-
-            Thread thread2 = new Thread(AutoThread);
-            thread2.Name = "Thread 2";
-            thread2.Start();
-
-            Thread.Sleep(1000);
+            for (int i = 1; i <= 2; i++)
+            {
+                Thread thread = new Thread(AutoManual);
+                thread.Name = "Thread " + i;
+                Thread.Sleep(10);
+                thread.Start();
+            }
 
             for (int i = 3; i <= 4; i++)
             {
@@ -25,57 +21,62 @@
                 manualThread.Start();
             }
 
-            Thread.Sleep(1500);
-
             for (int i = 5; i <= 6; i++)
             {
                 Thread autoThread = new Thread(AutoThread);
                 autoThread.Name = "Thread " + i;
                 autoThread.Start();
             }
+        }
 
-            Thread.Sleep(1500);
-            Console.WriteLine("Thread 2 set signal");
-            are.Set();
+        static void AutoManual()
+        {
+            string? name = Thread.CurrentThread.Name;
+            Console.WriteLine($"{name} started");
+            if (name.Equals("Thread 1"))
+            {
+                Thread.Sleep(100);
+                Console.WriteLine($"{name} set signal");
+                mre.Set();
 
-            Thread.Sleep(1500);
-            Console.WriteLine("Thread 1 set signal");
-            mre.Set();
-
-            Thread.Sleep(1500);
-            Console.WriteLine("Thread 1 reset signal");
-            mre.Reset();
-
-            Thread.Sleep(1500);
-            Console.WriteLine("Thread 2 set signal");
-            are.Set();
+                Thread.Sleep(40);
+                Console.WriteLine($"{name} reset signal");
+                mre.Reset();
+            }
+            else
+            {
+                for (int i = 0; i <= 1; i++)
+                {
+                    Thread.Sleep(70);
+                    Console.WriteLine($"{name} set signal");
+                    are.Set();
+                }
+            }
         }
 
         static void ManualThread()
         {
-            if (Thread.CurrentThread.Name.Equals("Thread 1")) Console.WriteLine($"{Thread.CurrentThread.Name} started");
-            else
+            string? name = Thread.CurrentThread.Name;
+            Console.WriteLine($"{name} is waiting for a manual signal from Thread 1");
+            bool isSignaled = mre.WaitOne();
+            if (isSignaled)
             {
-                Console.WriteLine($"{Thread.CurrentThread.Name} is waiting for a manual signal from Thread 1");
-                bool isSignaled = mre.WaitOne();
-                if (isSignaled)
+                if (name.Equals("Thread 4"))
                 {
-                    Console.WriteLine($"{Thread.CurrentThread.Name} received a manual signal, continue working");
+                    Thread.Sleep(10);
                 }
+                Console.WriteLine($"{name} received a manual signal, continue working");
             }
         }
 
         static void AutoThread()
         {
-            if (Thread.CurrentThread.Name.Equals("Thread 2")) Console.WriteLine($"{Thread.CurrentThread.Name} started");
-            else
+            string? name = Thread.CurrentThread.Name;
+            Console.WriteLine($"{name} is waiting for an auto signal from Thread 2");
+            bool isSignaled = are.WaitOne();
+            if (isSignaled)
             {
-                Console.WriteLine($"{Thread.CurrentThread.Name} is waiting for an auto signal from Thread 2");
-                bool isSignaled = are.WaitOne();
-                if (isSignaled)
-                {
-                    Console.WriteLine($"{Thread.CurrentThread.Name} received an auto signal, continue working");
-                }
+                Console.WriteLine($"{name} received an auto signal, continue working");
             }
         }
     }
