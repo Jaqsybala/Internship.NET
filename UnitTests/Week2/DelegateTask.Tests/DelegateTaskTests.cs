@@ -5,7 +5,7 @@ using Xunit;
 
 namespace UnitTests.Week2.DelegateTask.Tests
 {
-    public class CustomerTests
+    public class DelegateTaskTests
     {
         public Dictionary<string, Func<Customer, double>> DiscountCalculation = new Dictionary<string, Func<Customer, double>>();
 
