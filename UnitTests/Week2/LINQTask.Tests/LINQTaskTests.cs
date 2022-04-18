@@ -1,10 +1,14 @@
-﻿using Week2.LINQTask;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Week2.LINQTask;
+using Xunit;
 
-namespace Week2
+namespace UnitTests.Week2.LINQTask.Tests
 {
-    public class Program
+    public class LINQTaskTests
     {
-        static void Main(string[] args)
+        [Fact]
+        public void LINQ_Returns_CorrectOutput()
         {
             List<Consumer> consumers = new List<Consumer>()
             { 
@@ -72,10 +76,14 @@ namespace Week2
 
             var finalLINQ =
                     from e in purchases
-                    join b in goods on e.ArticleNumber equals b.ArticleNumber
-                    join a in consumers on e.ConsumerCode equals a.ConsumerCode
-                    join c in discounts on new { e.StoreName, e.ConsumerCode } equals new { c.StoreName, c.ConsumerCode }
-                    join d in prices on new { e.ArticleNumber, e.StoreName } equals new { d.ArticleNumber, d.StoreName }
+                    join b in goods
+                    on e.ArticleNumber equals b.ArticleNumber
+                    join a in consumers
+                    on e.ConsumerCode equals a.ConsumerCode
+                    join c in discounts
+                    on new { e.StoreName, e.ConsumerCode } equals new { c.StoreName, c.ConsumerCode }
+                    join d in prices
+                    on new { e.ArticleNumber, e.StoreName } equals new { d.ArticleNumber, d.StoreName }
                     join fq in (from se in purchases
                                 join sb in goods on se.ArticleNumber equals sb.ArticleNumber
                                 join sa in consumers on se.ConsumerCode equals sa.ConsumerCode
@@ -139,6 +147,7 @@ namespace Week2
                         sq.cyear_of_birth,
                         sq.cnew_price
                     } into finalGroup
+                    orderby finalGroup.Key.CountryOfOrigin ascending, finalGroup.Key.StoreName ascending, finalGroup.Key.ConsumerCode ascending
                     select new
                     {
                         Country = finalGroup.Key.CountryOfOrigin,
@@ -148,8 +157,21 @@ namespace Week2
                         Price = finalGroup.Key.cnew_price
                     };
 
-            foreach (var item in finalLINQ)
-                Console.WriteLine(item);
+            List<ForTest> forTests = new List<ForTest>()
+            {
+                new ForTest("Kazakhstan", "Magnum", 1, 1997, 4500),
+                new ForTest("Turkey", "DeFacto", 3, 1999, 6750),
+                new ForTest("USA", "Sportmaster", 2, 1998, 28000)
+            };
+
+            for (int i = 0; i < finalLINQ.ToList().Count; i++)
+            {
+                Assert.Equal(forTests[i].Country, finalLINQ.ToList()[i].Country);
+                Assert.Equal(forTests[i].Store, finalLINQ.ToList()[i].Store);
+                Assert.Equal(forTests[i].Code, finalLINQ.ToList()[i].Code);
+                Assert.Equal(forTests[i].Birth, finalLINQ.ToList()[i].Birth);
+                Assert.Equal(forTests[i].Price, finalLINQ.ToList()[i].Price);
+            }
         }
     }
 }

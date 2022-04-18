@@ -4,7 +4,7 @@ using Xunit;
 
 namespace UnitTests.Week2.DisposeTask.Tests
 {
-    public class CustomerTests
+    public class DisposeTaskTests
     {
         [Fact]
         public void Dispose_Test()
