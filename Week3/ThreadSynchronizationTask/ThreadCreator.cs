@@ -58,15 +58,12 @@
         {
             string? name = Thread.CurrentThread.Name;
             Console.WriteLine($"{name} is waiting for a manual signal from Thread 1");
-            bool isSignaled = mre.WaitOne();
-            if (isSignaled)
+            mre.WaitOne();
+            if (name.Equals("Thread 4"))
             {
-                if (name.Equals("Thread 4"))
-                {
-                    Thread.Sleep(10);
-                }
-                Console.WriteLine($"{name} received a manual signal, continue working");
+                Thread.Sleep(10);
             }
+            Console.WriteLine($"{name} received a manual signal, continue working");
         }
 
         static void AutoThread()

@@ -27,7 +27,7 @@ namespace Week3.MultithreadingTask2
                 {
                     throw new ArgumentException("No value to download");
                 }
-                if (id > end) break;
+                if (id >= end) break;
                 target = urls["thumbnailUrl"].ToString();
                 id = Convert.ToInt32(urls["id"].ToString());
                 if (id <= start) continue;

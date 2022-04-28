@@ -2,10 +2,10 @@
 {
     public class Editor
     {
-        public string text { get; set; }
-        public List<List<char>> TextBox { get; set; }
-        public int _row, _col;
-        public char currChar { get; set; }
+        internal string text { get; set; }
+        internal List<List<char>> TextBox { get; set; }
+        internal int _row, _col;
+        internal char currChar { get; set; }
 
         public Editor()
         {

@@ -57,7 +57,7 @@ namespace Week4.AsyncEnumerable
             // Replace the 3rd parameter to the following code with your GitHub access token.
             var key = GetEnvVariable("GitHubKey",
             "You must store your GitHub key in the 'GitHubKey' environment variable",
-            "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");
+            "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"); //GithubKey was blocked
 
             var client = new GitHubClient(new ProductHeaderValue("IssueQueryDemo"))
             {
