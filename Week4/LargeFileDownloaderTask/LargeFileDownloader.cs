@@ -19,6 +19,9 @@ namespace Week4.Downloader
             extensions.Add(".txt", "text/plain");
             extensions.Add(".jpg", "image/jpeg");
             extensions.Add(".png", "image/png");
+            extensions.Add(".mp3", "audio/mpeg");
+            extensions.Add(".mp4", "video/mp4");
+
             #endregion
 
             var start = DateTime.Now;
