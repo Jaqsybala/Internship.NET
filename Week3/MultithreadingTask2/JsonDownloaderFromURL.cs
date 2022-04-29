@@ -39,7 +39,7 @@ namespace Week3.MultithreadingTask2
                 if (id <= start) continue;
                 using (var stream = await hc.GetStreamAsync(target))
                 {
-                    using (var fileStream = new FileStream(targetFolder + "\\{id}.jpg", FileMode.Create))
+                    using (var fileStream = new FileStream(targetFolder + $"\\{id}.jpg", FileMode.Create))
                     {
                         await stream.CopyToAsync(fileStream);
                         Console.WriteLine($"{id}.jpg loaded + {id}");
