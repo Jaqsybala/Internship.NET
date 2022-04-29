@@ -26,10 +26,10 @@
                 //End of downloading image - 10 step
                 var end = DateTime.Now;
                 //Here is calculating duration of downloading image - 11 step
-                var timeTaken = (end - start).Milliseconds;
+                var timeTaken = (end - start).TotalSeconds;
                 //Output to the console about download ending - 12 step
                 Console.WriteLine("File was downloaded");
-                Console.WriteLine($"Time taken: {timeTaken} ms");
+                Console.WriteLine($"Time taken: {Math.Round(timeTaken)} s");
             }
         }
     }

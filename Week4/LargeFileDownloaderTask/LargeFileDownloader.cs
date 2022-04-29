@@ -21,6 +21,7 @@ namespace Week4.Downloader
             extensions.Add(".png", "image/png");
             extensions.Add(".mp3", "audio/mpeg");
             extensions.Add(".mp4", "video/mp4");
+            extensions.Add(".zip", "application/zip");
 
             #endregion
 
@@ -114,9 +115,9 @@ namespace Week4.Downloader
             #endregion
 
             var end = DateTime.Now;
-            var timeTaken = (end - start).Milliseconds;
+            var timeTaken = (end - start).TotalSeconds;
             Console.WriteLine("File was downloaded");
-            Console.WriteLine($"Time taken: {timeTaken} ms");
+            Console.WriteLine($"Time taken: {Math.Round(timeTaken)} s");
         }
     }
 }

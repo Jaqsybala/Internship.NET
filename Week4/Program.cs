@@ -45,13 +45,16 @@ namespace Week4
             DoTree(binaryTree, x => Console.Write($"{x} "));
 
             //LargeFileDownloaderTask
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string largeFileToDownload = "http://212.183.159.230/100MB.zip";
             LargeFileDownloader lfd = new LargeFileDownloader();
-            Task task = Task.Run(() => lfd.Downloader("http://212.183.159.230/100MB.zip", @"C:\Users\SomeUser\Desktop\", 8));
+            Task task = Task.Run(() => lfd.Downloader(largeFileToDownload, filePath, 8));
             Task.WaitAll(task);
 
             //AsynchronousDownloaderTask
+            string fileToDownloadAsync = "https://newengland.com/wp-content/uploads/maine-coon-cat-trivia.jpg";
             AsyncDownloader ad = new AsyncDownloader();
-            Task task1 = Task.Run(() => ad.AsyncDowloader("https://newengland.com/wp-content/uploads/maine-coon-cat-trivia.jpg", @"C:\Users\SomeUser\Desktop\"));
+            Task task1 = Task.Run(() => ad.AsyncDowloader(fileToDownloadAsync, filePath));
             Task.WaitAll(task1);
         }
 

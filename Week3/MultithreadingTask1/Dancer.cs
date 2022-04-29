@@ -6,36 +6,36 @@
         static List<TypeOfMusic> trackList = new();
         static List<TypeOfMusic> shuffled = new();
         private static ManualResetEvent mre = new ManualResetEvent(false);
-        static void Main(string[] args)
-        {
-            for (int i = 0; i < 20; i++)
-            {
-                if (i >= 0 && i < 6)
-                {
-                    trackList.Add(TypeOfMusic.HARDBASS);
-                }
-                else if (i > 5 && i < 12)
-                {
-                    trackList.Add(TypeOfMusic.LATINO);
-                }
-                else
-                {
-                    trackList.Add(TypeOfMusic.ROCK);
-                }
-            }
+        //static void Main(string[] args)
+        //{
+        //    for (int i = 0; i < 20; i++)
+        //    {
+        //        if (i >= 0 && i < 6)
+        //        {
+        //            trackList.Add(TypeOfMusic.HARDBASS);
+        //        }
+        //        else if (i > 5 && i < 12)
+        //        {
+        //            trackList.Add(TypeOfMusic.LATINO);
+        //        }
+        //        else
+        //        {
+        //            trackList.Add(TypeOfMusic.ROCK);
+        //        }
+        //    }
 
-            shuffled = trackList
-                .OrderBy(x => Guid.NewGuid()).ToList();
+        //    shuffled = trackList
+        //        .OrderBy(x => Guid.NewGuid()).ToList();
 
-            for (int i = 1; i <= shuffled.Count; i++)
-            {
-                Thread dancer = new Thread(Print);
-                dancer.Name = "Dancer " + i;
-                dancer.Start();
-            }
+        //    for (int i = 1; i <= shuffled.Count; i++)
+        //    {
+        //        Thread dancer = new Thread(Print);
+        //        dancer.Name = "Dancer " + i;
+        //        dancer.Start();
+        //    }
 
-            SessionBegins();
-        }
+        //    SessionBegins();
+        //}
 
         static void Print()
         {
