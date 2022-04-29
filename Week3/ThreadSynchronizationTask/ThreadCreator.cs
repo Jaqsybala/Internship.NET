@@ -4,30 +4,30 @@
     {
         private static ManualResetEvent mre = new ManualResetEvent(false);
         private static AutoResetEvent are = new AutoResetEvent(false);
-        static void Main(string[] args)
-        {
-            for (int i = 1; i <= 2; i++)
-            {
-                Thread thread = new Thread(AutoManual);
-                thread.Name = "Thread " + i;
-                Thread.Sleep(10);
-                thread.Start();
-            }
+        //static void Main(string[] args)
+        //{
+        //    for (int i = 1; i <= 2; i++)
+        //    {
+        //        Thread thread = new Thread(AutoManual);
+        //        thread.Name = "Thread " + i;
+        //        Thread.Sleep(10);
+        //        thread.Start();
+        //    }
 
-            for (int i = 3; i <= 4; i++)
-            {
-                Thread manualThread = new Thread(ManualThread);
-                manualThread.Name = "Thread " + i;
-                manualThread.Start();
-            }
+        //    for (int i = 3; i <= 4; i++)
+        //    {
+        //        Thread manualThread = new Thread(ManualThread);
+        //        manualThread.Name = "Thread " + i;
+        //        manualThread.Start();
+        //    }
 
-            for (int i = 5; i <= 6; i++)
-            {
-                Thread autoThread = new Thread(AutoThread);
-                autoThread.Name = "Thread " + i;
-                autoThread.Start();
-            }
-        }
+        //    for (int i = 5; i <= 6; i++)
+        //    {
+        //        Thread autoThread = new Thread(AutoThread);
+        //        autoThread.Name = "Thread " + i;
+        //        autoThread.Start();
+        //    }
+        //}
 
         static void AutoManual()
         {

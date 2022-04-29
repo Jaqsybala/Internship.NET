@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System.Net;
 
 namespace Week3.MultithreadingTask2
 {
@@ -10,9 +9,16 @@ namespace Week3.MultithreadingTask2
             string target = "";
             int id = 1;
 
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string targetFolder = filePath + "\\JSON";
+            bool exist = Directory.Exists(targetFolder);
+
+            if (!exist) Directory.CreateDirectory(targetFolder);
+            
+
             var hrm = await hc.GetAsync(url);
             var json = await hrm.Content.ReadAsStringAsync();
-
+            
             JArray array = JArray.Parse(json);
 
             if (start > end)
@@ -33,7 +39,7 @@ namespace Week3.MultithreadingTask2
                 if (id <= start) continue;
                 using (var stream = await hc.GetStreamAsync(target))
                 {
-                    using (var fileStream = new FileStream(@$"C:\Users\azizk\Downloads\JSON\{id}.jpg", FileMode.CreateNew))
+                    using (var fileStream = new FileStream(targetFolder + "\\{id}.jpg", FileMode.Create))
                     {
                         await stream.CopyToAsync(fileStream);
                         Console.WriteLine($"{id}.jpg loaded + {id}");
@@ -49,6 +55,7 @@ namespace Week3.MultithreadingTask2
             var startTime = DateTime.Now;
 
             int start = 0;
+            string fileToDownload = "https://jsonplaceholder.typicode.com/photos";
 
             List<ThreadItem> httpClients = new List<ThreadItem>();
             for (int i = 0; i < 10; i++)
@@ -62,19 +69,20 @@ namespace Week3.MultithreadingTask2
                 start += 500;
 
             }
+
             List<Task> tasks = new List<Task>();
 
             foreach (var item in httpClients)
             {
-                Task task = Task.Run(() => DownloaderJson("https://jsonplaceholder.typicode.com/photos", item.Start, item.End, item.Client));
+                Task task = Task.Run(() => DownloaderJson(fileToDownload, item.Start, item.End, item.Client));
                 tasks.Add(task);
             }
 
             Task.WaitAll(tasks.ToArray());
             var endTime = DateTime.Now;
-            var duration = (endTime - startTime).Milliseconds;
+            var duration = (endTime - startTime).TotalSeconds;
             Console.WriteLine("All images are uploaded.");
-            Console.WriteLine($"Time taken: {duration} ms");
+            Console.WriteLine($"Time taken: {Math.Round(duration)} s");
         }
     }
 }
