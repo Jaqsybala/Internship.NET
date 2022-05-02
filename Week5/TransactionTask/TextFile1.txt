@@ -1,0 +1,30 @@
+﻿1st question:
+(a) Yes, nonserializable behavior is possible (two statements of Transaction 1 execute before and after Transaction 2, respectively)
+(b) No, nonserializable behavior is not possible (state of S is same before and after Transaction 2)
+(c) Yes, nonserializable behavior is possible (first and third statements of Transaction 1 execute before and after Transaction 2, respectively)
+
+2nd question:
+(a) a1 = 25, a2 = 25, 
+	a1 = 40, a2 = 40
+(b) a1 = 25, a2 = 25, 
+	a1 = 40, a2 = 40
+(c) a1 = 25, a2 = 25, 
+	a1 = 25, a2 = 40, 
+	a1 = 40, a2 = 40
+(d) a1 = 25, a2 = 25, 
+	a1 = 25, a2 = 30,  
+	a1 = 30, a2 = 30,  
+	a1 = 40, a2 = 40
+
+3rd question:
+(a) Read-Uncommitted
+(b) Repeatable-Read
+(c) Serializable
+(d) In A case
+
+4th question:
+(a) Possible Amy's final pays: 120, 270
+(b) Possible Amy's final pays: 120, 270
+(c) Possible Amy's final pays: 120, 210, 270
+(d) Possible Amy's final pays: 120, 150, 170, 210, 230, 270
+(e) Possible Amy's final pays: 300
